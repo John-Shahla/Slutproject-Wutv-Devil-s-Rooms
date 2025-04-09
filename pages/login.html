@@ -7,28 +7,30 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Creepster&display=swap" rel="stylesheet">
+     <!--link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Creepster&display=swap" rel="stylesheet"-->
 </head>
 <body>
     <header>
         <nav class="main-nav">
             <div class="logo">
-                <h1>Devil's Rooms</h1>
+                <img src="../images/logo.png" alt="Devil's Rooms Logo" style="height: 70px;">
             </div>
             <button class="mobile-menu-btn" aria-label="Öppna meny">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
-            <ul class="nav-links">
-                <li><a href="../index.html">Hem</a></li>
-                <li><a href="about.html">Om Spelet</a></li>
-                <li><a href="how-to-play.html">Spelguide</a></li>
-                <li><a href="gallery.html">Galleri</a></li>
-                <li><a href="highscores.html">Highscores</a></li>
-                <li><a href="credits.html">Credits</a></li>
-                <li><a href="login.html">Logga In</a></li>
-            </ul>
+            <div class="nav-links-container">
+                <ul class="nav-links">
+                    <li><a href="../index.html">Hem</a></li>
+                    <li><a href="about.html">Om Spelet</a></li>
+                    <li><a href="how-to-play.html">Spelguide</a></li>
+                    <li><a href="gallery.html">Galleri</a></li>
+                    <li><a href="highscores.html">Highscores</a></li>
+                    <li><a href="credits.html">Credits</a></li>
+                    <li><a href="login.html">Logga In</a></li>
+                </ul>
+            </div>
         </nav>
     </header>
 
@@ -74,7 +76,17 @@
                         </div>
                         <div class="form-group">
                             <label for="register-password">Lösenord</label>
-                            <input type="password" id="register-password" name="password" required>
+                            <input type="password" id="register-password" name="password" required 
+                                pattern="^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{12,})"
+                                title="Lösenordet måste vara minst 12 tecken långt och innehålla minst en stor bokstav, en siffra och en symbol">
+                            <div class="password-requirements">
+                                <ul>
+                                    <li id="length">Minst 12 tecken</li>
+                                    <li id="symbol">Minst 1 symbol (!@#$%^&*)</li>
+                                    <li id="number">Minst 1 siffra</li>
+                                    <li id="capital">Minst 1 stor bokstav</li>
+                                </ul>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label for="register-confirm-password">Bekräfta Lösenord</label>

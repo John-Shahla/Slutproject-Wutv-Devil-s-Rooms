@@ -7,28 +7,30 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Creepster&display=swap" rel="stylesheet">
+     <!--link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Creepster&display=swap" rel="stylesheet"-->
 </head>
 <body>
     <header>
         <nav class="main-nav">
             <div class="logo">
-                <h1>Devil's Rooms</h1>
+                <img src="../images/logo.png" alt="Devil's Rooms Logo" style="height: 70px;">
             </div>
             <button class="mobile-menu-btn" aria-label="Öppna meny">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
-            <ul class="nav-links">
-                <li><a href="../index.html">Hem</a></li>
-                <li><a href="about.html">Om Spelet</a></li>
-                <li><a href="how-to-play.html">Spelguide</a></li>
-                <li><a href="gallery.html">Galleri</a></li>
-                <li><a href="highscores.html">Highscores</a></li>
-                <li><a href="credits.html">Credits</a></li>
-                <li><a href="login.html">Logga In</a></li>
-            </ul>
+            <div class="nav-links-container">
+                <ul class="nav-links">
+                    <li><a href="../index.html">Hem</a></li>
+                    <li><a href="about.html">Om Spelet</a></li>
+                    <li><a href="how-to-play.html">Spelguide</a></li>
+                    <li><a href="gallery.html">Galleri</a></li>
+                    <li><a href="highscores.html">Highscores</a></li>
+                    <li><a href="credits.html">Credits</a></li>
+                    <li><a href="login.html">Logga In</a></li>
+                </ul>
+            </div>
         </nav>
     </header>
 
@@ -37,7 +39,7 @@
             <h2>Highscores</h2>
             
             <div class="highscores-filters">
-                <button class="filter-btn active" data-filter="all">Alla Tider</button>
+                <button class="filter-btn active" data-filter="allTime">Alla Tider</button>
                 <button class="filter-btn" data-filter="weekly">Denna Vecka</button>
                 <button class="filter-btn" data-filter="monthly">Denna Månad</button>
             </div>
@@ -53,19 +55,18 @@
                             <th>Datum</th>
                         </tr>
                     </thead>
-                    <tbody id="highscores-body">
-                        <!-- Highscores will be populated by JavaScript -->
+                    <tbody>
+                        <!-- Highscores will be loaded here dynamically -->
                     </tbody>
                 </table>
             </div>
 
             <div class="highscores-info">
-                <h3>Om Highscores</h3>
-                <p>Highscores uppdateras automatiskt när spelare slutför spelet. Poängen beräknas baserat på:</p>
+                <h3>Hur fungerar poängsystemet?</h3>
                 <ul>
-                    <li>Tid att slutföra spelet</li>
-                    <li>Antal samlade föremål</li>
-                    <li>Antal pussel löst</li>
+                    <li>Poäng baseras på tid, samlade föremål och överlevnad</li>
+                    <li>Bonuspoäng för att klara rum utan att dö</li>
+                    <li>Extra poäng för att hitta hemliga rum</li>
                 </ul>
             </div>
         </section>

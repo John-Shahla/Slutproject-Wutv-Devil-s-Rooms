@@ -1,0 +1,92 @@
+{
+    "allTime": [
+        {
+            "rank": 1,
+            "username": "DevilMaster",
+            "score": 10000,
+            "time": "1:23:45",
+            "date": "2024-03-15"
+        },
+        {
+            "rank": 2,
+            "username": "GhostHunter",
+            "score": 9500,
+            "time": "1:30:12",
+            "date": "2024-03-14"
+        },
+        {
+            "rank": 3,
+            "username": "ShadowWalker",
+            "score": 9000,
+            "time": "1:45:30",
+            "date": "2024-03-13"
+        },
+        {
+            "rank": 4,
+            "username": "DoomSlayer",
+            "score": 8500,
+            "time": "1:50:22",
+            "date": "2024-03-12"
+        },
+        {
+            "rank": 5,
+            "username": "NightStalker",
+            "score": 8000,
+            "time": "2:00:15",
+            "date": "2024-03-11"
+        }
+    ],
+    "weekly": [
+        {
+            "rank": 1,
+            "username": "DevilMaster",
+            "score": 10000,
+            "time": "1:23:45",
+            "date": "2024-03-15"
+        },
+        {
+            "rank": 2,
+            "username": "GhostHunter",
+            "score": 9500,
+            "time": "1:30:12",
+            "date": "2024-03-14"
+        },
+        {
+            "rank": 3,
+            "username": "DarkKnight",
+            "score": 7500,
+            "time": "2:15:00",
+            "date": "2024-03-13"
+        }
+    ],
+    "monthly": [
+        {
+            "rank": 1,
+            "username": "DevilMaster",
+            "score": 10000,
+            "time": "1:23:45",
+            "date": "2024-03-15"
+        },
+        {
+            "rank": 2,
+            "username": "GhostHunter",
+            "score": 9500,
+            "time": "1:30:12",
+            "date": "2024-03-14"
+        },
+        {
+            "rank": 3,
+            "username": "ShadowWalker",
+            "score": 9000,
+            "time": "1:45:30",
+            "date": "2024-03-13"
+        },
+        {
+            "rank": 4,
+            "username": "DoomSlayer",
+            "score": 8500,
+            "time": "1:50:22",
+            "date": "2024-03-12"
+        }
+    ]
+} 
