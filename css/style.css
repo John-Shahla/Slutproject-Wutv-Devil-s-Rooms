@@ -511,6 +511,7 @@ body.menu-open {
 .control-card h4 {
     color: var(--accent-color);
     margin-bottom: 1rem;
+    font-size: 1.2rem;
 }
 
 .control-card ul {
@@ -520,12 +521,14 @@ body.menu-open {
 
 .control-card ul li {
     margin: 0.5rem 0;
-    padding: 0.8rem;
+    padding: 1rem;
     background: rgba(0, 0, 0, 0.6);
     color: var(--text-color);
     border-radius: 4px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 68, 68, 0.2);
+    font-family: 'Arial', sans-serif;
+    font-size: 1rem;
 }
 
 .gameplay-section {
@@ -764,9 +767,10 @@ body.menu-open {
 /* Highscores Page Styles */
 .highscores-section {
     padding: 2rem;
-    background: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+    background: rgba(0, 0, 0, 0.8);
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-top: 2rem;
 }
 
 .highscores-filters {
@@ -780,60 +784,62 @@ body.menu-open {
 .highscores-table-container {
     overflow-x: auto;
     margin: 2rem 0;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    padding: 1rem;
 }
 
 .highscores-table {
     width: 100%;
-    max-width: 1200px;
     border-collapse: collapse;
     margin: 0 auto;
-    background: rgba(0, 0, 0, 0.8);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.highscores-table th, .highscores-table td {
-    padding: 1rem 1.5rem;
+    background: transparent;
+    font-family: 'Creepster', cursive;
 }
 
 .highscores-table th {
-    background: var(--secondary-color);
+    padding: 1rem;
+    background: var(--accent-color);
     color: white;
+    text-align: left;
+    font-size: 1.4rem;
+    border-bottom: 2px solid rgba(255, 68, 68, 0.5);
 }
 
 .highscores-table td {
-    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
     color: var(--text-color);
+    background: rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid rgba(255, 68, 68, 0.2);
+    font-size: 1.2rem;
 }
 
 .highscores-table tr:nth-child(even) td {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(0, 0, 0, 0.5);
 }
 
 .highscores-table tr:hover td {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 68, 68, 0.1);
 }
 
 .highscores-table .rank {
     font-weight: bold;
-    color: var(--secondary-color);
-}
-
-.highscores-table .top-3 {
-    background: none; /* Remove yellow highlight */
-    color: var(--text-color);
+    color: var(--accent-color);
+    font-size: 1.3rem;
 }
 
 .highscores-info {
-    margin-top: 3rem;
-    padding: 2rem;
-    background: rgba(0, 0, 0, 0.8);
-    color: var(--text-color);
-    border-radius: 10px;
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 68, 68, 0.2);
 }
 
 .highscores-info h3 {
-    color: var(--secondary-color);
+    color: var(--accent-color);
     margin-bottom: 1rem;
+    font-size: 1.4rem;
 }
 
 .highscores-info ul {
@@ -844,36 +850,46 @@ body.menu-open {
 
 .highscores-info ul li {
     margin: 0.5rem 0;
-    padding: 0.5rem;
-    background: rgba(0, 0, 0, 0.8); /* Dark gray */
-    color: var(--text-color); /* Light gray */
-    border-radius: 4px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-}
-
-/* Highscores Info Styles */
-.highscores-info input[type="text"], .highscores-info input[type="number"] {
-    width: 100%;
-    padding: 0.75rem;
-    margin-bottom: 1rem;
-    background: rgba(0, 0, 0, 0.8);
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.6);
     color: var(--text-color);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 5px;
-    transition: border-color 0.3s ease;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 68, 68, 0.2);
+    font-size: 1.1rem;
 }
 
-.highscores-info input[type="text"]:focus, .highscores-info input[type="number"]:focus {
-    border-color: var(--accent-color);
-    outline: none;
+.filter-btn {
+    padding: 0.75rem 1.5rem;
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Creepster', cursive;
+    font-size: 1.2rem;
 }
 
-/* Responsive Design for Highscores */
+.filter-btn:hover,
+.filter-btn.active {
+    background: var(--accent-color);
+    color: white;
+}
+
 @media (max-width: 768px) {
     .highscores-table th,
     .highscores-table td {
-        padding: 0.5rem;
-        font-size: 0.9rem;
+        padding: 0.75rem;
+        font-size: 1rem;
+    }
+
+    .highscores-table .rank {
+        font-size: 1.1rem;
+    }
+
+    .highscores-table-container {
+        margin: 1rem -1rem;
+        border-radius: 0;
     }
 
     .highscores-filters {
@@ -1523,4 +1539,4 @@ input[type="text"]:focus, input[type="number"]:focus, textarea:focus {
 
 .logout-button:hover {
     background: #8b0000;
-} 
+}

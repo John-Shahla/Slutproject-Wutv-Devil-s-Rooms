@@ -3,6 +3,72 @@ document.addEventListener('DOMContentLoaded', () => {
     const highscoresTable = document.querySelector('.highscores-table tbody');
     const filterButtons = document.querySelectorAll('.filter-btn');
 
+    // Sample data in case the JSON file fails to load
+    const sampleData = {
+        "allTime": [
+            {
+                "rank": 1,
+                "username": "DevilMaster",
+                "score": 100000,
+                "time": "1:23:45",
+                "date": "2025-04-01"
+            },
+            {
+                "rank": 2,
+                "username": "GhostHunter",
+                "score": 95000,
+                "time": "1:25:30",
+                "date": "2025-03-30"
+            },
+            {
+                "rank": 3,
+                "username": "ShadowWalker",
+                "score": 90000,
+                "time": "1:28:15",
+                "date": "2025-03-28"
+            }
+        ],
+        "weekly": [
+            {
+                "rank": 1,
+                "username": "DevilMaster",
+                "score": 100000,
+                "time": "1:23:45",
+                "date": "2025-04-01"
+            },
+            {
+                "rank": 2,
+                "username": "GhostHunter",
+                "score": 95000,
+                "time": "1:25:30",
+                "date": "2025-03-30"
+            }
+        ],
+        "monthly": [
+            {
+                "rank": 1,
+                "username": "DevilMaster",
+                "score": 100000,
+                "time": "1:23:45",
+                "date": "2025-04-01"
+            },
+            {
+                "rank": 2,
+                "username": "GhostHunter",
+                "score": 95000,
+                "time": "1:25:30",
+                "date": "2025-03-30"
+            },
+            {
+                "rank": 3,
+                "username": "ShadowWalker",
+                "score": 90000,
+                "time": "1:28:15",
+                "date": "2025-03-28"
+            }
+        ]
+    };
+
     // Load highscores data
     async function loadHighscores() {
         try {
@@ -13,16 +79,20 @@ document.addEventListener('DOMContentLoaded', () => {
             const data = await response.json();
             return data;
         } catch (error) {
-            console.error('Error loading highscores:', error);
-            showError('Failed to load highscores. Please try again later.');
-            return null;
+            console.warn('Using sample data:', error);
+            return sampleData;
         }
     }
 
     // Display highscores in table
     function displayHighscores(scores) {
-        if (!scores || !scores[currentFilter]) {
-            highscoresTable.innerHTML = '<tr><td colspan="5">No scores available</td></tr>';
+        if (!scores || !scores[currentFilter] || scores[currentFilter].length === 0) {
+            highscoresTable.innerHTML = `
+                <tr>
+                    <td colspan="5" style="text-align: center; padding: 2rem;">
+                        Inga poäng tillgängliga för denna period
+                    </td>
+                </tr>`;
             return;
         }
 
@@ -45,14 +115,6 @@ document.addEventListener('DOMContentLoaded', () => {
             month: 'short',
             day: 'numeric'
         });
-    }
-
-    // Show error message
-    function showError(message) {
-        const errorDiv = document.createElement('div');
-        errorDiv.className = 'error-message';
-        errorDiv.textContent = message;
-        highscoresTable.parentElement.insertBefore(errorDiv, highscoresTable);
     }
 
     // Handle filter button clicks
