@@ -5,6 +5,13 @@
     --text-color: #d3d3d3; /* Light gray */
     --accent-color: #ff4444;
     --header-height: 70px;
+    --section-padding: 2rem;
+    --section-margin: 2rem auto;
+    --border-radius: 10px;
+    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    --border-color: rgba(255, 68, 68, 0.2);
+    --max-width: 1200px;
+    --background-opacity: 0.95;
 }
 
 * {
@@ -33,20 +40,21 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Header and Navigation */
 header {
-    background-color: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, var(--background-opacity));
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
     backdrop-filter: blur(5px);
+    border-bottom: 1px solid var(--border-color);
 }
 
 .main-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
-    max-width: 1200px;
+    padding: var(--section-padding);
+    max-width: var(--max-width);
     margin: 0 auto;
     position: relative;
 }
@@ -105,10 +113,14 @@ header {
 
 /* Main Content */
 main {
-    min-height: calc(100vh - var(--header-height) - 100px); /* Adjust for footer height */
-    padding: 2rem;
+    width: 100%;
     max-width: 1200px;
-    margin: var(--header-height) auto 0;
+    margin: calc(var(--header-height) + 2rem) auto 2rem;
+    padding: 0 1rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .hero {
@@ -185,17 +197,18 @@ main {
 
 /* Footer */
 footer {
-    background-color: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, var(--background-opacity));
     color: #fff;
-    padding: 2rem 0;
+    padding: var(--section-padding);
     text-align: center;
     backdrop-filter: blur(5px);
     margin-top: auto;
     width: 100%;
+    border-top: 1px solid var(--border-color);
 }
 
 .footer-content {
-    max-width: 1200px;
+    max-width: var(--max-width);
     margin: 0 auto;
     text-align: center;
     padding: 0 1rem;
@@ -410,6 +423,137 @@ body.menu-open {
     }
 }
 
+/* Common section styles */
+.section,
+.highscores-section,
+.credits-section,
+.about-section,
+.how-to-play-section,
+.gallery-section,
+.auth-section,
+.profile-section {
+    width: 100%;
+    max-width: 800px;
+    margin: 2rem auto;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+}
+
+/* Page titles (Credits, Highscores, etc.) */
+.section h1,
+.highscores-section h1,
+.credits-section h1,
+.about-section h1,
+.how-to-play-section h1,
+.gallery-section h1,
+.auth-section h1,
+.profile-section h1 {
+    color: var(--accent-color);
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* Section headers (like "Utvecklingsteam", table headers) */
+.section-header,
+.credits-group h3,
+.highscores-table th,
+.section-title {
+    background: var(--secondary-color);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    width: 100%;
+}
+
+/* Credits specific styles */
+.credits-content {
+    width: 100%;
+}
+
+.credits-group {
+    margin-bottom: 3rem;
+}
+
+.credits-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 0 auto;
+}
+
+.credit-item {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+}
+
+.credit-item h4 {
+    color: var(--accent-color);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+/* Highscores specific styles */
+.highscores-filters {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.highscores-table-container {
+    margin: 2rem 0;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: var(--border-radius);
+    padding: 1rem;
+}
+
+.highscores-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.highscores-table td {
+    padding: 1rem;
+    color: var(--text-color);
+    font-size: 1rem;
+}
+
+.highscores-info {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: var(--border-radius);
+}
+
+/* Standardize content font sizes */
+.credit-item p,
+.highscores-table td,
+.about-content p,
+.gallery-item p,
+.profile-details p,
+.stat-item p,
+.special-thanks p,
+.tips-list li,
+.control-card li {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Standardize button text sizes */
+.filter-btn,
+.auth-button,
+.cta-button,
+.logout-button {
+    font-size: 1rem;
+}
+
 /* About Page Styles */
 .about-section {
     padding: 2rem;
@@ -482,13 +626,6 @@ body.menu-open {
 }
 
 /* How to Play Page Styles */
-.how-to-play-section {
-    padding: 2rem;
-    background: rgba(0, 0, 0, 0.8);
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
 .controls-section {
     margin: 2rem 0;
 }
@@ -603,9 +740,11 @@ body.menu-open {
 /* Gallery Page Styles */
 .gallery-section {
     padding: 2rem;
-    background: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+    background: rgba(0, 0, 0, 0.8);
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    max-width: 800px;
+    margin: 2rem auto;
 }
 
 .gallery-filters {
@@ -635,7 +774,7 @@ body.menu-open {
 
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
     margin-top: 2rem;
 }
@@ -646,6 +785,8 @@ body.menu-open {
     overflow: hidden;
     cursor: pointer;
     aspect-ratio: 16/9;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 68, 68, 0.2);
 }
 
 .gallery-image {
@@ -1106,58 +1247,62 @@ body.menu-open {
 
 /* Credits Page Styles */
 .credits-section {
-    padding: 2rem;
-    background: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--section-padding);
+    max-width: 800px;
+    margin: var(--section-margin);
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-.credits-section h2 {
-    text-align: center;
-    margin-bottom: 2rem;
-    color: #333;
-}
-
 .credits-content {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+    width: 100%;
 }
 
+/* Development Team Section */
 .credits-group {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    padding: 1.5rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 3rem;
 }
 
 .credits-group h3 {
-    color: var(--secondary-color);
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid #eee;
+    background: var(--secondary-color);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 2rem;
 }
 
 .credits-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
+    margin: 0 auto;
 }
 
 .credit-item {
-    padding: 1rem;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    text-align: center;
 }
 
 .credit-item h4 {
-    color: var(--text-color);
-    margin-bottom: 0.5rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
 }
 
 .credit-item ul {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 .credit-item li {
@@ -1165,48 +1310,69 @@ body.menu-open {
     color: var(--text-color);
 }
 
-.credit-item a {
-    color: var(--accent-color);
-    text-decoration: none;
-    transition: color 0.2s;
-}
-
-.credit-item a:hover {
-    color: #004499;
-    text-decoration: underline;
-}
-
+/* Special Thanks Section */
 .special-thanks {
+    width: 100%;
+    text-align: center;
+}
+
+.special-thanks h3 {
+    background: var(--secondary-color);
+    color: white;
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 2rem;
+}
+
+.special-thanks-list {
     list-style: none;
     padding: 0;
-    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
 }
 
-.special-thanks li {
-    margin: 0.5rem 0;
-    color: var(--text-color);
-    padding-left: 1.5rem;
-    position: relative;
+.special-thanks-list li {
+    width: 100%;
+    max-width: 600px;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
 }
 
-.special-thanks li::before {
-    content: "♥";
-    position: absolute;
-    left: 0;
-    color: #ff4444;
+/* Links in credits */
+.credit-item a,
+.special-thanks a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
-@media (max-width: 768px) {
+.credit-item a:hover,
+.special-thanks a:hover {
+    color: var(--secondary-color);
+}
+
+@media screen and (max-width: 768px) {
     .credits-section {
         padding: 1rem;
+        margin: 1rem;
     }
 
     .credits-list {
         grid-template-columns: 1fr;
     }
 
+    .credits-group h3,
+    .special-thanks h3 {
+        font-size: 1.3rem;
+        padding: 0.8rem;
+    }
+
     .credit-item {
-        padding: 0.75rem;
+        padding: 1rem;
     }
 }
 
@@ -1338,13 +1504,6 @@ input[type="text"]:focus, input[type="number"]:focus, textarea:focus {
     padding: 2rem;
     max-width: 800px;
     margin: 0 auto;
-}
-
-.profile-container {
-    background: rgba(0, 0, 0, 0.8);
-    border-radius: 10px;
-    padding: 2rem;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
 .profile-header {
@@ -1539,4 +1698,50 @@ input[type="text"]:focus, input[type="number"]:focus, textarea:focus {
 
 .logout-button:hover {
     background: #8b0000;
+}
+
+/* Center all headings */
+h1, h2, h3, h4, h5, h6 {
+    text-align: center;
+}
+
+/* Center all paragraphs in sections */
+section p {
+    text-align: center;
+}
+
+/* Center grid items */
+.feature-grid,
+.gallery-grid,
+.controls-grid,
+.stats-grid {
+    justify-items: center;
+}
+
+/* Center form elements */
+form {
+    margin: 0 auto;
+    max-width: 500px;
+    text-align: center;
+}
+
+/* Center table content */
+th, td {
+    text-align: center;
+}
+
+/* Center lists */
+ul, ol {
+    text-align: center;
+    list-style-position: inside;
+}
+
+@media screen and (max-width: 768px) {
+    .credits-list {
+        grid-template-columns: 1fr;
+    }
+
+    .credit-item {
+        max-width: 100%;
+    }
 }
